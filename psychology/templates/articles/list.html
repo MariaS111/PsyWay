@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="name">Articles</div>
+<div class="filter">
+    <a href="#">Section</a>
+    <a href="#">Latest</a>
+</div>
+<div class="all_art_list">
+    {% for i in articles %}
+        <div class="art"> <img class="container_image" src = "{{ i.image.url }}" width="200" height="160">
+        <div class="line"></div>
+        <p class="p_container">{{ i }}</p>
+            <a href="#">
+              <img class="arrow" src="/static/users/arrow.png" width="60" height="18">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

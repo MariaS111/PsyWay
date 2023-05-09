@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block content %}
+    <div>
+            <img src = "{{ profile.profile_image.url }}" class="img_profile" width="250" height="250">
+            <label class="l_1">First name</label>
+           <p class="p_1"><b>{{ user.first_name }}</b></p>
+           <label class="l_2">Last name</label>
+            <p class="p_2">{{ user.last_name }}</p>
+            <label class="l_3">Specialization</label>
+            <p class="p_3">{{ user.specialization }}</p>
+            <label class="l_4">Email</label>
+            <p class="p_4">{{ user.email }}</p>
+            <label >Email</label>
+            <p >{{ user.comments }}</p>
+            <label >Rate</label>
+            <p >{{ user.average_rating }}</p>
+            <label class="l_5">BIO</label>
+            <div class="ab">
+                <p class="p_5">{{ user.bio }}</p>
+            </div>
+             <a href = '#'><label class="l_6">Add new article</label></a>
+             <a href = '#'><label>Timetable</label></a>
+             <a href = '#'><label>Clients</label></a>
+             <a href = '#'><label>Requests</label></a>
+    </div>
+{% endblock content %}

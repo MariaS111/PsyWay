@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div>
+        <form>
+            {% csrf_token %}
+            <label class = 'name'>Enter as</label>
+            <fieldset class="welcome_field">
+                <div class="welcome">
+             <a href="{% url 'login' %}">User</a>
+                <a href="{% url 'psy_login' %}">Psychologist</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

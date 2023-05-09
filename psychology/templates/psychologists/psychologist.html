@@ -1,0 +1,31 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+<div>
+            <img src = "{{ user.profile.profile_image.url }}" class="img_profile" width="250" height="250">
+            <label class="l_1">First name</label>
+           <p class="p_1"><b>{{ user.first_name }}</b></p>
+           <label class="l_2">Last name</label>
+            <p class="p_2">{{ user.last_name }}</p>
+            <label class="l_3">Specialization</label>
+            <p class="p_3">{{ user.specialization }}</p>
+            <label class="l_4">Email</label>
+            <p class="p_4">{{ user.email }}</p>
+            <div class="bts">
+                <label>Rate</label>
+            <p >{{ user.average_rating }}</p>
+            <label>Comments</label>
+            <p >{{ user.comments }}</p>
+            </div>
+            <label class="l_5">BIO</label>
+            <div class="ab">
+                <p class="p_5">{{ user.bio }}</p>
+            </div>
+            <div class="btns">
+             <a href = '#'><label>Sign up for the session</label></a>
+            </div>
+
+</div>
+
+{% endblock content %}

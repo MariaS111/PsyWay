@@ -1,0 +1,44 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div>
+    <div class="arr"><div><label class="pc">Explore yourself</label></div></div>
+
+    <p class="dv">Today, psychological science is becoming increasingly important at all
+    levels of society, from the treatment of clinical disorders to our basic understanding
+    of how the mind works. It is highly interdisciplinary, borrowing questions from philosophy, methods from neuroscience
+    and insights from clinical practice - all in the goal of furthering our grasp of human nature and society, as well
+        as our ability to develop new intervention methods</p>
+
+    <div class="arr arr_1"><div><label class="pc">For better self-understanding</label></div></div>
+    <div class="name a_art">Articles</div>
+    <div class="all">
+        {% for i in articles %}
+            <div class="art"> <img class="container_image" src = "{{ i.image.url }}" width="200" height="160">
+            <div class="line"></div>
+            <p class="p_container">{{ i }}</p>
+                <a href="article">
+                  <img class="arrow" src="/static/users/arrow.png" width="60" height="18">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'list_of_articles' %}"><label class="view_more">View more...</label></a>
+    <div class="arr arr_2"><div><label class="pc">For professional advice</label></div></div>
+    <div class="name a_psy">Psychologists</div>
+     <div class="all all_1">
+         {% for i in  psychologists%}
+             <div class="art"><img class="container_image ps" src = "{{ i.profile.profile_image.url }}" width="180" height="165">
+             <div class="line"></div>
+             <p class="p_container">{{ i }}</p>
+                 <p class="p_container">{{ i.specialization }}</p>
+                  <a href="#">
+                  <img class="arrow" src="/static/users/arrow.png" width="60" height="18">
+                </a>
+             </div>
+         {% endfor %}
+    </div>
+    <a href="{% url 'list_of_psychologists' %}"><label class="view_more view_more_1">View more...</label></a>
+</div>
+
+{% endblock content %}

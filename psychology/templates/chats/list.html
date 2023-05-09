@@ -1,0 +1,18 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class="name">Chats</div>
+<div class="chat_buttons">
+    <a href="#"><label>Create chat</label></a>
+    <a href="#"><label>Find chat</label></a>
+</div>
+{% for i in  chats %}
+<a href="#"><div class="chat">
+    <p><b>{{i.name}}</b></p>
+    {% if i.is_private %}
+    <label>Private</label>
+    {% else %}
+    <label>Public</label>
+    {% endif %}
+</div></a>
+{% endfor %}
+{% endblock content %}

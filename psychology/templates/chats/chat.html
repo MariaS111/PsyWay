@@ -1,0 +1,14 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class="name">{{ chat.name }}</div>
+<div class="chat_outer">
+    <div class="message_field">
+    <div class="message">
+   </div>
+    <div class="message">
+   </div>
+    </div>
+    <input class="input_message" type="text" name="input_message" placeholder="Type message...">
+    <button class="input_button" type="button">Sent</button>
+</div>
+{% endblock content %}

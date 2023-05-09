@@ -1,0 +1,28 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div>
+            <img src = "{{ article.image.url }}" class="img_profile" width="200" height="200">
+            <label class="l_1">Title</label>
+           <p class="p_1"><b>{{ article.title }}</b></p>
+           <label class="l_2">Download file</label>
+            <p class="p_2">{{ article.file }}</p>
+            <label class="l_3">Authors</label>
+            <p class="p_3">{{ article.authors }}</p>
+            <label class="l_7">Publication date</label>
+            <p class="p_6">{{ article.publication_date }}</p>
+            <label class="l_4">Section</label>
+            <p class="p_4">{{ article.section }}</p>
+            <div class="bts">
+                <label>Rate</label>
+            <p >{{ article.average_rating }}</p>
+            <label>Comments</label>
+            <p >{{ articles.comments }}</p>
+            </div>
+            <label class="l_5">Content</label>
+            <div class="ab">
+                <p class="p_5">{{ article.content }}</p>
+            </div>
+
+</div>
+{% endblock content %}

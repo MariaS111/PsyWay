@@ -1,0 +1,67 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block content %}
+
+{% if user.is_authenticated %}
+  {% if not user.profile.is_psychologist %}
+    <div>
+            <img src ="{{ profile.profile_image.url }}" class="img_profile" width="250" height="250">
+            <label class="l_1">Username</label>
+           <p class="p_1"><b>{{ user.username }}</b></p>
+           <label class="l_2">Name</label>
+            <p class="p_2">{{ user.first_name }}</p>
+            <label class="l_3">Surname</label>
+            <p class="p_3">{{ user.last_name }}</p>
+            <label class="l_4">Email</label>
+            <p class="p_4">{{ user.email }}</p>
+            <label class="l_5">About me</label>
+            <div class="ab">
+                <p class="p_5">{{ user.inf }}</p>
+            </div>
+             <button id="open_sessions"><label class="l_6">My nearest sessions</label></button>
+
+             <div id="my_sessions" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Содержимое окна</p>
+              </div>
+            </div>
+
+    </div>
+
+{% else %}
+<div>
+            <img src = "{{ profile.profile_image.url }}" class="img_profile" width="250" height="250">
+            <label class="l_1">First name</label>
+           <p class="p_1"><b>{{ user.first_name }}</b></p>
+           <label class="l_2">Last name</label>
+            <p class="p_2">{{ user.last_name }}</p>
+            <label class="l_3">Specialization</label>
+            <p class="p_3">{{ user.specialization }}</p>
+            <label class="l_4">Email</label>
+            <p class="p_4">{{ user.email }}</p>
+            <div class="bts">
+                <label>Rate</label>
+            <p >{{ user.average_rating }}</p>
+            <label>Comments</label>
+            <p >{{ user.comments }}</p>
+            </div>
+            <label class="l_5">BIO</label>
+            <div class="ab">
+                <p class="p_5">{{ user.bio }}</p>
+            </div>
+            <div class="btns">
+             <a href = '#'><label>Add new article</label></a>
+             <a href = '#'><label>Timetable</label></a>
+             <a href = '#'><label>Clients</label></a>
+             <a href = '#'><label>Requests</label></a>
+            </div>
+
+                </div>
+{% endif %}
+{% endif %}
+
+{% endblock content %}
+
+
+

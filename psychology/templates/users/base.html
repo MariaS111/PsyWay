@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+<div class = 'frame'>
+    <a href="{% url 'home' %}"><img src = "{% static 'users/image_6.png' %}" class = 'im' width="70" height="70"></a>
+     <a href="#" class="butt btn_1">Search</a>
+    <img src = "{% static 'users/image_5.png' %}" class = 'im_1' width="17" height="17">
+    <a href="{% url 'list_of_articles' %}" class="butt btn_2">Articles</a>
+    <a href="{% url 'list_of_psychologists' %}" class="butt btn_3">Psychologists</a>
+     <a href="{% url 'list_of_chats' %}" class="butt btn_4">Chats</a>
+     <a href="{% url 'choice' %}" class="butt btn_5">Login</a>
+    <a href="{% url 'profile' %}" class="butt btn_6">Profile</a>
+
+</div>
+{% block content %}
+{% endblock content %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
