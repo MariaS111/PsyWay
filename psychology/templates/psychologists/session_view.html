@@ -1,0 +1,13 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="row">
+     <p>{% for user in session.users.all %}
+        {{ user.username }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}</p>
+    <p>{{session.date}}</p>
+     <p>{{session.status}}</p>
+    <a href="{% url 'session_update'  pk=session.pk %}" ><label >Update</label></a>
+</div>
+
+{% endblock content %}

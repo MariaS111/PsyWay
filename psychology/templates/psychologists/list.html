@@ -8,7 +8,7 @@
              <div class="line"></div>
              <p class="p_container">{{ i }}</p>
                  <p class="p_container">{{ i.specialization }}</p>
-                  <a href="#">
+                  <a href="{% url 'psychologist'  pk=i.pk %}">
                   <img class="arrow" src="/static/users/arrow.png" width="60" height="18">
                 </a>
              </div>

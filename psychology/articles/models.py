@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Article(models.Model):
@@ -23,10 +24,13 @@ class Section(models.Model):
 
 class CommentArticle(models.Model):
     article = models.ForeignKey('Article', on_delete=models.CASCADE)
-    psychologist = models.ForeignKey('psychologists.Psychologist', on_delete=models.CASCADE, blank=True)
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True)
+    psychologist = models.ForeignKey('psychologists.Psychologist', on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True)
     comment_text = models.TextField()
-    rating = models.IntegerField()
+    rating = models.IntegerField(validators=[
+            MinValueValidator(0),
+            MaxValueValidator(10)
+        ])
 
     def __str__(self):
-        return f"{self.user.username} - {self.psychologist.first_name} {self.psychologist.last_name}"
+        return f"{self.comment_text} {self.rating}"

@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label class = 'name name_1'>Create article</label>
+            <fieldset class = 'reg_field1'>
+                {{ form.title }}
+                {{ form.content }}
+                {{ form.image }}
+                    {{ form.file }}
+                {{ form.authors }}
+                {{ form.section }}
+            </fieldset>
+            <div>
+                <button class = 'btn_in btn_in_new1' type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

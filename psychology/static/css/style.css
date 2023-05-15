@@ -6,6 +6,44 @@ body{
      overflow: auto;
  }
 
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 280px;
+    background: rgba(5, 1, 1, 0.7);
+    border: 3px solid #494242;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form button {
+    position: relative;
+    bottom:20px;
+    right:20px;
+}
+
+.form label {
+    position: absolute;
+   right: 20px;
+}
+
+.input{
+    color: white;
+    background-color: black;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -14,32 +52,88 @@ body{
   top: 100px;
   width: 60%;
   height: 60%;
-  background-color: rgba(0, 0, 0, 0.8); /* Черный фон с прозрачностью */
+  background-color: rgba(0, 0, 0, 0.95); /* Черный фон с прозрачностью */
   justify-content: center;
   align-items: center;
+
+}
+
+.modal1{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 200px;
+  top: 100px;
+  width: 60%;
+  height: 60%;
+  background-color: rgba(0, 0, 0, 0.95); /* Черный фон с прозрачностью */
+  justify-content: center;
+  align-items: center;
+
 }
 
 .modal-content {
-  background-color: black;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 300px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: 1px solid #888;
+    bottom: 0;
+    right: 0;
+}
+
+.modal-content p{
+    width: 300px;
 }
 
 .close {
   color: white;
-  float: right;
+  position: absolute; /* Добавляем позиционирование */
+  top: 0; /* Располагаем кнопку вверху контейнера */
+  right: 0;
   font-size: 28px;
   font-weight: bold;
   background-color: black;
   cursor: pointer;
 }
 
+.close1 {
+  color: white;
+  position: absolute; /* Добавляем позиционирование */
+  top: 0; /* Располагаем кнопку вверху контейнера */
+  right: 0;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: black;
+  cursor: pointer;
+}
+
+
 .close:hover,
 .close:focus {
   color: #ffffff;
   text-decoration: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+    font-family: 'Vesper Libre';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+td, th {
+  padding: 20px; /* Задайте желаемое значение отступа */
+  text-align: center;
+    color: white;
+}
+
+th{
+    color: #B9A14C;
 }
 
 .chat_outer{
@@ -227,6 +321,12 @@ fieldset{
     height: 620px;
  }
 
+ .reg_field1{
+     top: 200px;
+     width: 1000px;
+    height: 520px;
+ }
+
  .art{
      box-sizing: border-box;
     position: relative;
@@ -249,6 +349,38 @@ fieldset{
     border: 2px solid #494242;
     border-radius: 10px;
  }
+
+ .comment{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+    position: relative;
+    width: 1100px;
+    height: 100px;
+    left: 190px;
+    top:200px;
+     margin-bottom: 20px;
+    background: rgba(5, 1, 1, 0.4);
+    border: 2px solid #494242;
+    border-radius: 10px;
+ }
+
+ .lbl_1{
+     left: 200px;
+     top: 150px;
+ }
+
+  .lbl_2{
+     left: -50px;
+     top: -50px;
+ }
+
+ .comment p{
+     padding-left: 50px;
+     position: relative;
+ }
+
 
  .chat label{
      position: relative;
@@ -351,13 +483,13 @@ button{
     left: 120px;
 }
 .btn_2{
-   left: 250px;
+   left: 240px;
 }
 .btn_3{
     left: 370px;
 }
 .btn_4{
-   left: 530px;
+   left: 430px;
 }
 .btn_5{
     left: 1250px;
@@ -380,6 +512,11 @@ button{
     left: 320px;
     top: 740px;
 }
+.btn_in_new1{
+    left: 320px;
+    top: 650px;
+}
+
 .im{
     position: absolute;
     left: 20px;
@@ -447,7 +584,7 @@ button{
     box-sizing: border-box;
     position: absolute;
     width: 700px;
-    height: 60px;
+    height: 50px;
     left: 100px;
     background: rgba(5, 1, 1, 0.4);
     border: 3px solid #494242;
@@ -455,8 +592,8 @@ button{
     font-family: 'Vesper Libre';
     font-style: normal;
     font-weight: 200;
-    font-size: 30px;
-    line-height: 70px;
+    font-size: 27px;
+    line-height: 60px;
 
     color: white;
 }
@@ -517,6 +654,47 @@ label{
 
     color: #B9A14C;
 }
+.my_label{
+    text-decoration: none;
+    color: white;
+    top: 180px;
+    left: 102px;
+     font-size: 27px;
+}
+
+.sessions{
+    top: 600px;
+    left: 295px;
+    text-shadow: none;
+    font-size: 23px;
+}
+.row{
+    position: absolute;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 500px;
+    width: 500px;
+    left: 200px;
+    top: 150px;
+}
+
+.row p {
+    margin-right: 30px; /* Измените значение, чтобы задать желаемое расстояние */
+    position: relative;
+    width: 400px;
+
+    font-weight: 270;
+    font-size: 27px;
+    line-height: 30px;
+}
+
+.requests{
+    text-shadow: none;
+    font-size: 20px;
+}
+
 .pc{
     bottom: -15px;
     left: 80px;
@@ -541,10 +719,12 @@ label{
 }
 .l_1{
       top: 170px;
-
 }
 .l_2{
       top: 255px;
+}
+.l_12{
+      top: 265px;
 }
 .l_3{
      top: 330px;
@@ -564,6 +744,30 @@ label{
     top: 500px;
 }
 
+.l_12{
+    left: 130px;
+    top: 613px;
+}
+
+.l_13{
+    left: 400px;
+    top: 285px;
+}
+
+.upd_user{
+  position: absolute;
+    width: 900px;
+    height: 500px;
+    left: 300px;
+    top: 150px;
+}
+
+.upd_user button{
+    top: 380px;
+    left: 50px;
+    font-size: 35px;
+}
+
 p{
     position: absolute;
     width: 180px;
@@ -580,6 +784,24 @@ p{
     top: 180px;
       left: 400px;
     width: 500px;
+}
+
+.link_image{
+    position: absolute;
+    width: 180px;
+    height: 30px;
+    font-family: 'Vesper Libre';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 20px;
+    top: 287px;
+      left: 550px;
+    color: white;
+}
+.p_23{
+    top: 30px;
+    left:5px;
 }
 .p_2{
     top: 270px;
@@ -606,6 +828,11 @@ p{
       left: 400px;
     width: 300px;
 }
+
+ .p_25{
+     top: 60px;
+      left: 0px;
+ }
 
  .p_container{
      position: relative;
@@ -645,6 +872,10 @@ p{
     left: 10px;
      top: 230px;
 
+ }
+
+ .upd{
+     right:20px;
  }
 
  .dv{
@@ -699,7 +930,7 @@ p{
  .btns {
      position: absolute;
      left: 400px;
-     top: 610px;
+     top: 598px;
       width: 400px;
       display: flex;
       flex-direction: row;
@@ -715,6 +946,13 @@ p{
  }
 
  .btns a{
+     position: static;
+     text-decoration: none;
+     margin-right: 110px;
+
+ }
+
+ .btns button{
      position: static;
      text-decoration: none;
      margin-right: 110px;

@@ -1,0 +1,11 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class="name">Requests</div>
+{% for i in requests %}
+<a href="{% url 'request_view'  pk=i.pk %}"><div class="chat">
+    <p><b>Session with {% for user in i.users.all %}
+        {{ user.username }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}</b></p>
+</div></a>
+{% endfor %}
+{% endblock content %}

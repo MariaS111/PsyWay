@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate
-from .models import Psychologist
+from .models import Psychologist, Session, CommentUserPsychologist
 
 
 class PsLoginForm(forms.Form):
@@ -28,7 +28,30 @@ class PsLoginForm(forms.Form):
             raise forms.ValidationError('Incorrect email or password.')
         return cleaned_data
 
-    # def clean_username(self):
-    #     return self.cleaned_data.get('email')
+
+class RequestUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ['is_confirmed']
+
+
+class SessionUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ['status']
+
+
+class SignUpForSession(forms.ModelForm):
+    class Meta:
+        model = Session
+        fields = ['date']
+
+
+class CommentUserPsychologistForm(forms.ModelForm):
+    class Meta:
+        model = CommentUserPsychologist
+        fields = ['comment_text', 'rating']
+
+
 
 

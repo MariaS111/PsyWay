@@ -38,6 +38,7 @@ class CommentUserPsychologist(models.Model):
 
 class Session(models.Model):
     STATUS_CHOICES = [
+        ('await confirmation', 'Waiting for confirmation'),
         ('await', 'Await'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled'),
@@ -46,7 +47,7 @@ class Session(models.Model):
     users = models.ManyToManyField('users.User', related_name='session_users')
     date = models.DateTimeField()
     is_confirmed = models.BooleanField(default=False)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, blank=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='await confirmation')
 
     def __str__(self):
         usernames = ', '.join([user.username for user in self.users.all()])

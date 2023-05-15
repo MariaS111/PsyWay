@@ -14,16 +14,16 @@
             <p class="p_4">{{ user.email }}</p>
             <div class="bts">
                 <label>Rate</label>
-            <p >{{ user.average_rating }}</p>
-            <label>Comments</label>
-            <p >{{ user.comments }}</p>
+            <p class="p_25">{{ av_rate }}</p>
+
             </div>
             <label class="l_5">BIO</label>
             <div class="ab">
                 <p class="p_5">{{ user.bio }}</p>
             </div>
             <div class="btns">
-             <a href = '#'><label>Sign up for the session</label></a>
+             <a href = "{% url 'sign_up_for_session' pk=user.pk%}"><label>Sign up for the session</label></a>
+                <a href = "{% url 'psychologist_comments' pk=user.pk%}"><label>Comments</label></a>
             </div>
 
 </div>

@@ -2,16 +2,16 @@
 
 {% block content %}
 <div class="name">Articles</div>
-<div class="filter">
-    <a href="#">Section</a>
-    <a href="#">Latest</a>
-</div>
+<!--<div class="filter">-->
+<!--    <a href="{% url 'article_by_rate'}">Rate</a>-->
+<!--    <a href="{% url 'article_by_date'}">Latest</a>-->
+<!--</div>-->
 <div class="all_art_list">
     {% for i in articles %}
         <div class="art"> <img class="container_image" src = "{{ i.image.url }}" width="200" height="160">
         <div class="line"></div>
         <p class="p_container">{{ i }}</p>
-            <a href="#">
+            <a href="{% url 'article'  pk=i.pk %}">
               <img class="arrow" src="/static/users/arrow.png" width="60" height="18">
             </a>
         </div>

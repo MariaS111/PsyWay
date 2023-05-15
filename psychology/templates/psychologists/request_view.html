@@ -1,0 +1,14 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="row">
+     <p>{% for user in requests.users.all %}
+        {{ user.username }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}</p>
+    <p>{{requests.date}}</p>
+
+     <p>{{requests.is_confirmed}}</p>
+    <a href="{% url 'request_update'  pk=requests.pk %}"><label>Update</label></a>
+</div>
+
+{% endblock content %}

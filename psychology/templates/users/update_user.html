@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<fieldset class="upd_user">
+<form method="POST">
+    {% csrf_token %}
+    {{ form.username }}
+    {{ form.first_name }}
+    {{ form.last_name }}
+    {{ form.email }}
+    {{ form.inf }}
+    <button type="submit">Save</button>
+</form>
+</fieldset>
+{% endblock content %}
+

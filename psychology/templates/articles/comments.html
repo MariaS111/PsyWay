@@ -1,0 +1,13 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+{% for i in comments %}
+<div class="comment">
+<p>{{i.user}}</p>:
+<p>{{i.comment_text}}</p>
+<p>{{i.rating}}</p>
+{% endfor %}
+</div>
+<a href="{% url 'article_comment'  pk=article.pk %}"><label class="lbl_1">Add comment</label></a>
+            </div>
+{% endblock content %}

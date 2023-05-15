@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label class = 'name name_1'>Create chat</label>
+            <fieldset class = 'reg_field1'>
+                {{ form.name }}
+                {{ form.description }}
+                <label for="{{ form.my_boolean.id_for_label }}" class="my_label">Private</label>
+                {{ form.is_private }}
+                {{ form.psychologists }}
+                {{ form.users }}
+            </fieldset>
+            <div>
+                <button class = 'btn_in btn_in_new1' type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

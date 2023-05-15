@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+{% for i in comments %}
+<div class="comment">
+<p>{{i.user.username}}</p>:
+<p>{{i.comment_text}}</p>
+<p>{{i.rating}}</p>
+{% endfor %}
+</div>
+{% if not user.profile.is_psychologist %}
+<a href="{% url 'psychologist_comment'  pk=ps.pk %}"><label class="lbl_1">Add comment</label></a>
+            </div>
+{% endif %}
+{% endblock content %}

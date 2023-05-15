@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <div class="form-field">
+            <label>Enter date</label>
+            {{ form.date }}
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+{% endblock content %}

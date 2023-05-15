@@ -8,5 +8,5 @@ from users import views as user_views
 urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('login/', MyLoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('accounts/profile/update', user_views.update_user, name='update_user'),
     ]
