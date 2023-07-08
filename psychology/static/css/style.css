@@ -1,9 +1,9 @@
 body{
       background-color: black;
-      background-image: url("/static/users/ps05.png");
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, black), url("/static/users/ps05.png");
       background-repeat: no-repeat;
       background-size: 1650px 820px;
-     overflow: auto;
+       overflow: auto;
  }
 
 .container {
