@@ -1,6 +1,7 @@
 from pathlib import Path
 AUTH_USER_MODEL = 'users.User'
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,10 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
-    'articles.apps.ArticlesConfig',
-    'psychologists.apps.PsychologistsConfig',
-    'chats.apps.ChatsConfig',
+    'users',
+    'articles',
+    'psychologists',
+    'chats',
 ]
 
 MIDDLEWARE = [
@@ -70,10 +71,10 @@ WSGI_APPLICATION = 'psychology.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "psychology1",
-        'USER': "root",
-        'PASSWORD':'wethrow4700_',
-        'HOST':'localhost'
+        "NAME": config("NAME"),
+        "USER": config("USER"),
+        "PASSWORD": config("PASSWORD"),
+        'HOST': 'localhost'
     }
 }
 
@@ -127,6 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #
 # LOGIN_REDIRECT_URL = 'blog-home'
-# LOGIN_URL = 'login'
+LOGIN_URL = '/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

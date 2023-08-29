@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -45,14 +46,19 @@ class MyLoginView(LoginView):
     success_url = reverse_lazy('profile')
 
 
+def custom_logout(request):
+    logout(request)
+    return redirect('/')
+
+
 def choice(request):
     return render(request, 'users/choice.html')
 
 
+@login_required
 def home(request):
     articles = Article.objects.all()[:4]
     psy = Psychologist.objects.all()
-    # print(articles)
     context = {'articles': articles, 'psychologists': psy}
     return render(request, 'users/home.html', context)
 
@@ -63,7 +69,7 @@ def update_user(request):
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Перенаправление на страницу профиля или другую нужную страницу
+            return redirect('profile')
     else:
         form = UserUpdateForm(instance=user)
 

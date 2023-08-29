@@ -10,17 +10,24 @@
 </head>
 
 <body>
-<div class = 'frame'>
-    <a href="{% url 'home' %}"><img src = "{% static 'users/image_6.png' %}" class = 'im' width="70" height="70"></a>
+<header>
+    <div>
+    <a href="{% url 'home' %}" class="a-image"><img src = "{% static 'users/image_6.png' %}" class = 'im' width="70" height="70"></a>
 <!--     <a href="#" class="butt btn_1">Search</a>-->
 <!--    <img src = "{% static 'users/image_5.png' %}" class = 'im_1' width="17" height="17">-->
-    <a href="{% url 'list_of_articles' %}" class="butt btn_4">Articles</a>
-    <a href="{% url 'list_of_psychologists' %}" class="butt btn_2">Psychologists</a>
-     <a href="{% url 'list_of_chats' %}" class="butt btn_1">Chats</a>
-     <a href="{% url 'choice' %}" class="butt btn_5">Login</a>
-    <a href="{% url 'profile' %}" class="butt btn_6">Profile</a>
-
-</div>
+    <a href="{% url 'list_of_psychologists' %}" class="btn">Psychologists</a>
+     <a href="{% url 'list_of_articles' %}" class="btn">Articles</a>
+     <a href="{% url 'list_of_chats' %}" class="btn">Chats</a>
+    </div>
+     <div>
+    {% if request.user.is_authenticated%}
+         <a href="{% url 'logout' %}" class="btn">Logout</a>
+    {% else %}
+         <a href="{% url 'choice' %}" class="btn">Login</a>
+    {% endif %}
+    <a href="{% url 'profile' %}" class="btn">Profile</a>
+     </div>
+</header>
 {% block content %}
 {% endblock content %}
 <script src="{% static 'js/script.js' %}"></script>

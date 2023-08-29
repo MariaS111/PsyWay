@@ -4,9 +4,11 @@ from .forms import ArticleForm, CommentArticleForm
 from users.models import User
 from psychologists.models import Psychologist
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from django.db.models import Avg
 
 
+@login_required
 def show_list(request):
     articles = Article.objects.all()
     # print(articles)
@@ -51,7 +53,6 @@ def comment_article_list(request, pk):
     comments = CommentArticle.objects.filter(article=pk)
     article = Article.objects.get(pk=pk)
     context = {'comments': comments, 'article': article}
-    # article_comments_url = reverse('article_comments', kwargs={'pk': pk})
     return render(request, 'articles/comments.html', context)
 
 

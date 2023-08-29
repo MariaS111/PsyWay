@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.db.models import Avg
 
 
-
+@login_required
 def show_list(request):
     psy = Psychologist.objects.all()
     context = {'psychologists': psy}
@@ -21,6 +21,7 @@ def profile(request):
     user = request.user
     context = {'profile': profile, 'user': user}
     return render(request, 'psychologists/profile.html', context)
+
 
 def psychologist_login(request):
     if request.method == "POST":
@@ -43,6 +44,7 @@ def psychologist_login(request):
     return render(request, 'psychologists/login_ps.html', {'form': form})
 
 
+@login_required
 def psychologist_view(request, pk):
     psy = Psychologist.objects.get(pk=pk)
     average_rating = CommentUserPsychologist.objects.filter(psychologist=pk).aggregate(Avg('rating'))[
@@ -57,7 +59,7 @@ def update_session(request, pk):
         form = SessionUpdateForm(request.POST, instance=session)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Перенаправление на страницу деталей сессии или другую нужную страницу
+            return redirect('profile')  #
     else:
         form = SessionUpdateForm(instance=session)
 
@@ -71,7 +73,7 @@ def update_request(request, pk):
         form = RequestUpdateForm(request.POST, instance=session)
         if form.is_valid():
             form.save()
-            return redirect('profile')  # Перенаправление на страницу профиля или другую нужную страницу
+            return redirect('profile')
     else:
         form = RequestUpdateForm(instance=session)
 
